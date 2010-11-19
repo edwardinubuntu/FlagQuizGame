@@ -1,0 +1,7 @@
+The Flag Quiz Game app, testing the user's knowledge of the world's flags. 
+
+Used the Utility Application template and UIViewController so that app could have a quiz game on the front side and game options on the flipside. 
+
+On the FlipsideView, the user could select the regions included in the quiz and the number of answers to display. 
+
+The quiz selected random flags and answers, and used a Segmented Control to display the answers.
