@@ -26,6 +26,7 @@ static const int BAR_OFFSET = 247; // top Segmented Control's y-coordinate
 }
 */
 
+//	Initialize the controller
 - (void)initInstance {
 	guessRows = 1;	// default to one row of choices
 	bars = [[NSMutableArray alloc] init];
@@ -47,7 +48,7 @@ static const int BAR_OFFSET = 247; // top Segmented Control's y-coordinate
 	[regions setValue:yesBool forKey:@"South_America"];
 }
 
-// called wehn the view finishes loading
+// called when the view finishes loading
 - (void)viewDidLoad {
 	
 	[super viewDidLoad];	// call superclass's viewDidLoad method
@@ -84,6 +85,7 @@ static const int BAR_OFFSET = 247; // top Segmented Control's y-coordinate
 	// get the file name of the next flag
 	NSString *nextImageName = [[quizCountries lastObject] retain];
 	[quizCountries removeLastObject];	// remove that flag from list
+	NSLog(@"Next image name: %@", nextImageName);
 	correctAnswer = nextImageName;	// update the correct answer
 	
 	// create a new flag image using the given file name
@@ -200,6 +202,7 @@ static const int BAR_OFFSET = 247; // top Segmented Control's y-coordinate
 	[self dismissModalViewControllerAnimated:YES];
 }
 
+// Called to display the FilpsideView
 - (IBAction)showInfo:(id)sender {    
 	
 	FlipsideViewController *controller = [[FlipsideViewController alloc] initWithNibName:@"FlipsideView" bundle:nil];
