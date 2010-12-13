@@ -3,14 +3,14 @@
 //  FlagQuizGame
 //
 //  Created by Edward Chiang on 2010/11/15.
-//  Copyright GSS 2010. All rights reserved.
+//  Copyright Edward in Action 2010. All rights reserved.
 //
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import "MainViewController.h"
 
-static const int BAR_OFFSET = 247; // top Segmented Control's y-coordinate
+static const int BAR_OFFSET = 300; // top Segmented Control's y-coordinate
 
 @implementation MainViewController
 
@@ -19,12 +19,12 @@ static const int BAR_OFFSET = 247; // top Segmented Control's y-coordinate
 @synthesize answerLabel;
 @synthesize numCorrectLabel;
 
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-	[super viewDidLoad];
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+		[self initInstance];
+	}
+	return self;
 }
-*/
 
 //	Initialize the controller
 - (void)initInstance {
@@ -49,6 +49,7 @@ static const int BAR_OFFSET = 247; // top Segmented Control's y-coordinate
 }
 
 // called when the view finishes loading
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	
 	[super viewDidLoad];	// call superclass's viewDidLoad method
@@ -104,6 +105,7 @@ static const int BAR_OFFSET = 247; // top Segmented Control's y-coordinate
 	int offset = BAR_OFFSET + 40 * bars.count; // set offset for next bar
 	
 	// add new UISegmentedControls if necessary
+	NSLog(@"Bars count = %i", bars.count);
 	for (int i = bars.count; i < guessRows; i++) {
 		// create a new bar with three empty items
 		UISegmentedControl *bar = [[UISegmentedControl alloc] initWithItems:
@@ -117,9 +119,11 @@ static const int BAR_OFFSET = 247; // top Segmented Control's y-coordinate
 		CGRect frame = bar.frame; // get the current frame for the bar 
 		frame.origin.y = offset; // position it below the last bar 
 		frame.origin.x = 20; // give it some padding on the left
+		
 		// expand the bar to fill the screen with some padding on the right
 		frame.size.width = self.view.frame.size.width - 40; 
 		bar.frame = frame; // assign the new frame [self.view addSubview:bar]; // add the bar to the main view 
+		[self.view addSubview:bar];
 		[bars addObject:bar]; // add the bar to the list of bars 
 		[bar release]; // release the bar Segmented Control
 		offset += 40;	// increase the offset so the next bar is farther down
@@ -239,17 +243,6 @@ static const int BAR_OFFSET = 247; // top Segmented Control's y-coordinate
 }
 */
 
-
-- (void)dealloc {
-	[fileNames release];
-	[bars release];
-	[quizCountries release];
-	[flagView release];
-	[answerLabel release];
-	[numCorrectLabel release];
-    [super dealloc];
-} // end method dealloc
-
 // called when the user touches one of the Segmated Control items
 - (IBAction)submitGuess:sender {
 	// get the index of the selected item
@@ -318,6 +311,7 @@ static const int BAR_OFFSET = 247; // top Segmented Control's y-coordinate
 	guessRows = rows;
 }	// end method
 
+
 // rest the quiz
 -(void)resetQuiz {
 	numCorrect = 0;
@@ -342,6 +336,16 @@ static const int BAR_OFFSET = 247; // top Segmented Control's y-coordinate
 	
 	[self loadNextFlag]; // load the first flag
 }	// end method
+
+- (void)dealloc {
+	[fileNames release];
+	[bars release];
+	[quizCountries release];
+	[flagView release];
+	[answerLabel release];
+	[numCorrectLabel release];
+    [super dealloc];
+} // end method dealloc
 
 @end
 

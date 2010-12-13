@@ -3,7 +3,7 @@
 //  FlagQuizGame
 //
 //  Created by Edward Chiang on 2010/11/15.
-//  Copyright GSS 2010. All rights reserved.
+//  Copyright Edward in Action 2010. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
