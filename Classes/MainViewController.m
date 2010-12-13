@@ -3,7 +3,7 @@
 //  FlagQuizGame
 //
 //  Created by Edward Chiang on 2010/11/15.
-//  Copyright Edward in Action 2010. All rights reserved.
+//  Copyright (C) 1992-2009 by Deitel & Associates, Inc. All rights reserved.
 //
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
@@ -274,7 +274,8 @@ static const int BAR_OFFSET = 300; // top Segmented Control's y-coordinate
 			// create the message which includes guess number and percentage
 			NSString *message = [NSString stringWithFormat: @"%i guesses, %.02f%% correct", totalGuesses, 1000 / (float)totalGuesses];
 			// create an alert to display the message
-			UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Results" message:message delegate:self cancelButtonTitle: @"Reset Quiz" otherButtonTitles:nil];
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Results" 
+															message:message delegate:self cancelButtonTitle: @"Reset Quiz" otherButtonTitles:nil];
 			[alert show]; // show the alert
 			[alert release]; // release the alert UIAlertView }
 		}// end if
@@ -295,7 +296,7 @@ static const int BAR_OFFSET = 300; // top Segmented Control's y-coordinate
 }//	end of method submitGuess
 
 // called when the user touches the "Reset Quiz" button in the alert
-- (void)alertView:(UIAlertView *)alertView clickButtonAtIndex:(NSInteger)buttonIndex {
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	[self resetQuiz];
 }	// end method alertView
 
