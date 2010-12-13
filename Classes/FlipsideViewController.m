@@ -31,8 +31,15 @@
 	[self.delegate flipsideViewControllerDidFinish:self];	
 	
 	 // if none of the switches are selected
-	if (africaSwitch.on) {
+	if (!africaSwitch.on && !asiaSwitch.on && !europeSwitch.on && !oceaniaSwitch.on && !northAmericaSwitch.on
+		&& !southAmericaSwitch.on) {
 		// show an alert promting the user to select at leas one region 
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR" 
+											message:@"Please select at least one region" 
+											delegate:self cancelButtonTitle:@"Ok" 
+											otherButtonTitles:nil];
+		[alert show];
+		[alert release];
 	} else {
 		// get the selected index of choicesControl
 		int index = [choicesControl selectedSegmentIndex];
@@ -48,6 +55,13 @@
 		[regions setValue:[NSNumber numberWithBool: northAmericaSwitch.on] forKey:@"North_America"];
 		[regions setValue:[NSNumber numberWithBool:oceaniaSwitch.on] forKey: @"Oceania"];
 		[regions setValue:[NSNumber numberWithBool: southAmericaSwitch.on] forKey:@"South_America"];
+		
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"WARNING" 
+														message:@"Reset the quiz game." 
+													   delegate:self cancelButtonTitle:@"Ok" 
+											  otherButtonTitles:nil];
+		[alert show];
+		[alert release];
 		
 		// create a new quiz on the frontside
 		[(MainViewController *)self.delegate resetQuiz];

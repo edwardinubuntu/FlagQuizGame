@@ -39,6 +39,7 @@ static const int BAR_OFFSET = 300; // top Segmented Control's y-coordinate
 	[regions setValue:yesBool forKey:@"North_America"];
 	[regions setValue:yesBool forKey:@"Oceania"];
 	[regions setValue:yesBool forKey:@"South_America"];
+	[regions setValue:yesBool forKey:@"Central_America"];
 }
 
 // called when the view finishes loading
@@ -58,10 +59,16 @@ static const int BAR_OFFSET = 300; // top Segmented Control's y-coordinate
 	
 	// loop through each png file
 	for (NSString *filename in paths) {
+		// NSLog(@"File path name is %@.", filename);
 		// separate the file name from the rest of the path
 		filename = [filename lastPathComponent];
-		NSLog(@"File name is %@.", filename);
-		[fileNames addObject:filename];	// add the display name
+		
+		NSArray *components = [filename componentsSeparatedByString:@"-"];
+		if ([components count]>1) {
+			NSLog(@"File name is %@.", filename);
+			[fileNames addObject:filename];	// add the display name
+		}
+		
 	} // end for
 	
 	NSLog(@"fileNames count is %i.", fileNames.count);
@@ -314,15 +321,26 @@ static const int BAR_OFFSET = 300; // top Segmented Control's y-coordinate
 	
 	// add 10 random file names to quizCountries
 	while (i < 10) {
-		NSLog(@"i is %i",i);
+		// NSLog(@"i is %i",i);
 		int n = random() % fileNames.count;	// choose a random index
-		NSLog(@"Random number %i",n);
+		
+		// NSLog(@"Random number %i",n);
+		
 		// get the filename from the end of the path
 		NSString *filename = [fileNames objectAtIndex:n];
-		NSLog(@"File name: %@",filename);
 		
+		NSArray *components = [filename componentsSeparatedByString:@"-"];
+		
+		NSString *region = [components objectAtIndex:0];
+		NSLog(@"Region name: %@",region);
+		// NSLog(@"Country name: %@",countryName);
+		
+		// check if the region is enabled
+		NSNumber *regionEnabled  = [regions valueForKey:region];
+		NSLog(@"Region Enabled: %@\n",[regionEnabled boolValue]?@"YES":@"NO");
+		NSLog(@"File name: %@",filename);
 		// if it hasn't already been chosen
-		if (![quizCountries containsObject:filename]) {
+		if ( [regionEnabled boolValue] && ![quizCountries containsObject:filename]) {
 			[quizCountries addObject:filename];	// add the file to the list
 			++i;	// increment i
 		}	// end if
@@ -346,9 +364,11 @@ static const int BAR_OFFSET = 300; // top Segmented Control's y-coordinate
 @implementation NSString (displayName)
 
 -(NSString *)converToDisplayName {
+	
+	NSString *name = [[self componentsSeparatedByString:@"-"]objectAtIndex:1];
 
 	// get a mutable copy of the name for editing
-	NSMutableString *displayName = [[self mutableCopy] autorelease];
+	NSMutableString *displayName = [[name mutableCopy] autorelease];
 	// remove the .png from the end of the name
 	[displayName replaceOccurrencesOfString:@".png" withString:@"" 
 									options:NSLiteralSearch range:NSMakeRange(0, displayName.length)];
