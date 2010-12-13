@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C503A7412B5DB990086F46E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C503A7312B5DB990086F46E /* icon.png */; };
 		1C8FCF32129103EB00F64E25 /* Asia-Afghanistan.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C8FCE50129103EB00F64E25 /* Asia-Afghanistan.png */; };
 		1C8FCF33129103EB00F64E25 /* Europe-Albania.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C8FCE51129103EB00F64E25 /* Europe-Albania.png */; };
 		1C8FCF34129103EB00F64E25 /* Africa-Algeria.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C8FCE52129103EB00F64E25 /* Africa-Algeria.png */; };
@@ -244,6 +245,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C503A7312B5DB990086F46E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../Downloads/icon.png; sourceTree = SOURCE_ROOT; };
 		1C8FCE50129103EB00F64E25 /* Asia-Afghanistan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Asia-Afghanistan.png"; sourceTree = "<group>"; };
 		1C8FCE51129103EB00F64E25 /* Europe-Albania.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Europe-Albania.png"; sourceTree = "<group>"; };
 		1C8FCE52129103EB00F64E25 /* Africa-Algeria.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Africa-Algeria.png"; sourceTree = "<group>"; };
@@ -796,6 +798,7 @@
 				1C8FCE4F129103EB00F64E25 /* country-flags */,
 				280E754A0DD40C5E005A515E /* FlipsideView.xib */,
 				280E754B0DD40C5E005A515E /* MainView.xib */,
+				1C503A7312B5DB990086F46E /* icon.png */,
 				280E754C0DD40C5E005A515E /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* FlagQuizGame-Info.plist */,
 			);
@@ -1089,6 +1092,7 @@
 				1C8FD011129103EB00F64E25 /* Yemen.png in Resources */,
 				1C8FD012129103EB00F64E25 /* Zambia.png in Resources */,
 				1C8FD013129103EB00F64E25 /* Zimbabwe.png in Resources */,
+				1C503A7412B5DB990086F46E /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,13 +19,6 @@ static const int BAR_OFFSET = 300; // top Segmented Control's y-coordinate
 @synthesize answerLabel;
 @synthesize numCorrectLabel;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-		[self initInstance];
-	}
-	return self;
-}
-
 //	Initialize the controller
 - (void)initInstance {
 	guessRows = 1;	// default to one row of choices
