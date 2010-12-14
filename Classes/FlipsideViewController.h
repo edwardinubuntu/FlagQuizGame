@@ -23,6 +23,7 @@
 	IBOutlet UISwitch *europeSwitch;
 	IBOutlet UISwitch *northAmericaSwitch;
 	IBOutlet UISwitch *oceaniaSwitch;
+	IBOutlet UISwitch *centerAmericaSwitch;
 	IBOutlet UISwitch *southAmericaSwitch;
 } // end instance variable declarations
 
@@ -33,6 +34,7 @@
 @property (nonatomic, retain) IBOutlet UISwitch *europeSwitch;
 @property (nonatomic, retain) IBOutlet UISwitch *northAmericaSwitch;
 @property (nonatomic, retain) IBOutlet UISwitch *oceaniaSwitch;
+@property (nonatomic, retain) IBOutlet UISwitch *centerAmericaSwitch;
 @property (nonatomic, retain) IBOutlet UISwitch *southAmericaSwitch;
 
 - (IBAction)done:(id)sender;

@@ -217,7 +217,7 @@ static const int BAR_OFFSET = 300; // top Segmented Control's y-coordinate
 	
 	// set the controls on the filpside
 	[controller setSwitches:regions];
-	[controller setSelectedIndex:guessRows];
+	[controller setSelectedIndex:guessRows-1];
 	
 	[controller release];
 }
@@ -337,8 +337,8 @@ static const int BAR_OFFSET = 300; // top Segmented Control's y-coordinate
 		
 		// check if the region is enabled
 		NSNumber *regionEnabled  = [regions valueForKey:region];
-		NSLog(@"Region Enabled: %@\n",[regionEnabled boolValue]?@"YES":@"NO");
-		NSLog(@"File name: %@",filename);
+		NSLog(@"Region Enabled: %@\n",[regionEnabled boolValue]? @"YES":@"NO");
+		// NSLog(@"File name: %@",filename);
 		// if it hasn't already been chosen
 		if ( [regionEnabled boolValue] && ![quizCountries containsObject:filename]) {
 			[quizCountries addObject:filename];	// add the file to the list
@@ -377,7 +377,7 @@ static const int BAR_OFFSET = 300; // top Segmented Control's y-coordinate
 	[displayName replaceOccurrencesOfString:@"_" withString:@" " 
 									options:NSLiteralSearch range:NSMakeRange(0, displayName.length)];
 	
-	NSLog(@"The file display name is: %@", displayName);
+	// NSLog(@"The file display name is: %@", displayName);
 	return displayName;
 }	// end method
 

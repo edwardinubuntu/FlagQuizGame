@@ -19,7 +19,7 @@
 @synthesize northAmericaSwitch;
 @synthesize oceaniaSwitch;
 @synthesize southAmericaSwitch;
-
+@synthesize centerAmericaSwitch;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,6 +54,7 @@
 		[regions setValue:[NSNumber numberWithBool:europeSwitch.on] forKey: @"Europe"];
 		[regions setValue:[NSNumber numberWithBool: northAmericaSwitch.on] forKey:@"North_America"];
 		[regions setValue:[NSNumber numberWithBool:oceaniaSwitch.on] forKey: @"Oceania"];
+		[regions setValue:[NSNumber numberWithBool: centerAmericaSwitch.on] forKey:@"Central_America"];
 		[regions setValue:[NSNumber numberWithBool: southAmericaSwitch.on] forKey:@"South_America"];
 		
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"WARNING" 
